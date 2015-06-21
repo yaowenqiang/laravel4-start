@@ -1,10 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Users</title>
-</head>
-<body>
+@extends('layout.default')
+@section('content')
     {{-- '<script>alert("hello world");</script>' --}}
     {{-- 会对输出进行转义--}}
     {{{ '<script>alert("hello world");</script>' }}}
@@ -15,5 +10,4 @@
         <p>{{ $user->password or "no password" }}</p>
     @endforeach
 @endif
-</body>
-</html>
+@stop

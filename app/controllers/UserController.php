@@ -29,7 +29,7 @@ class UserController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+        //
 	}
 
 
@@ -52,6 +52,12 @@ class UserController extends \BaseController {
 	 */
 	public function show($id)
 	{
+        $faker = Faker\Factory::create();
+        $user = new stdclass;
+        $user->name = $faker->username;
+        $user->email = $faker->email;
+        $user->password = Hash::make($faker->text);
+        return View::make('users.show',compact('user'));
 		//
 	}
 
