@@ -5,6 +5,7 @@
     <title></title>
 </head>
 <body>
+    @include('partial.menu')
     @yield('content')
     @section('sidebar')
         <h2>Links</h2>
