@@ -1,0 +1,1 @@
+/Users/apple/Documents/phpdevelop/laraverl4-start/app/views/post/detail.blade.php

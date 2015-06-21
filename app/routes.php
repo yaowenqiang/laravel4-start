@@ -15,3 +15,7 @@ Route::get('/', function()
 {
 	return View::make('hello');
 });
+
+Route::get('post',['uses'=>'PostController@index','as'=>'posts']);
+Route::get('blog',['uses'=>'PostController@index','as'=>'posts']);
+//Route::get('post',"PostController@index");
