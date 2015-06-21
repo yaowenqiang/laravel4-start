@@ -11,3 +11,11 @@
     @endforeach
 @endif
 @stop
+
+@section('sidebar')
+@parent
+<li>some links</li>
+<li>some links</li>
+<li>some links</li>
+<li>some links</li>
+@stop
