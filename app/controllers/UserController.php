@@ -9,7 +9,16 @@ class UserController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+        $faker = Faker\Factory::create();
+        $users = [];
+        for ($i = 0; $i < 3; $i++) {
+            $user = new stdclass;
+            $user->name = $faker->username;
+            $user->email = $faker->email;
+            $user->password = Hash::make($faker->text);
+            $users[] = $user;
+        }
+        return View::make('users.index',compact('users'));
 	}
 
 

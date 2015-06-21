@@ -34,6 +34,6 @@ Route::group(['prefix'=>'admin'],function(){
     Route::get('post',['uses'=>'PostController@index','as'=>'posts']);
 });
 
-//Route::resource('user','UserController');
+Route::resource('user','UserController');
 //Route::resource('user','UserController',['except'=>'show']);
-Route::resource('user','UserController',['only'=>'show']);
+//Route::resource('user','UserController',['only'=>'show']);
