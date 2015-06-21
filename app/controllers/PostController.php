@@ -42,9 +42,9 @@ class PostController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function show($id,$date)
 	{
-        return View::make('post.detail')->with(['id'=>$id]);
+        return View::make('post.detail')->with(['id'=>$id,'date'=>$date]);
 	}
 
 	/**

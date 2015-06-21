@@ -6,5 +6,6 @@
 </head>
 <body>
     {{ $id }}
+    {{ $date }}
 </body>
 </html>
