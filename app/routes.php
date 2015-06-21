@@ -29,3 +29,7 @@ Route::get('login',function(){
 Route::group(['before'=>'auth'],function(){
     Route::get('post',['uses'=>'PostController@index','as'=>'posts']);
 });
+
+Route::group(['prefix'=>'admin'],function(){
+    Route::get('post',['uses'=>'PostController@index','as'=>'posts']);
+});
