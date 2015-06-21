@@ -16,7 +16,7 @@ Route::get('/', function()
 	return View::make('hello');
 });
 
-Route::get('post',['uses'=>'PostController@index','as'=>'posts']);
+//Route::get('post',['uses'=>'PostController@index','as'=>'posts']);
 //Route::get('blog',['uses'=>'PostController@index','as'=>'posts']);
 Route::get('blog',['uses'=>'PostController@index','as'=>'posts','before'=>'auth']);
 //Route::get('blog/{id}',['uses'=>'PostController@show','as'=>'posts.single'])->where(['id'=>'[1-9][0-9]*']);
@@ -24,4 +24,8 @@ Route::get('blog/{id}/{date}/',['uses'=>'PostController@show','as'=>'posts.singl
 //Route::get('post',"PostController@index");
 Route::get('login',function(){
     return 'login page';
+});
+
+Route::group(['before'=>'auth'],function(){
+    Route::get('post',['uses'=>'PostController@index','as'=>'posts']);
 });
