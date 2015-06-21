@@ -18,4 +18,5 @@ Route::get('/', function()
 
 Route::get('post',['uses'=>'PostController@index','as'=>'posts']);
 Route::get('blog',['uses'=>'PostController@index','as'=>'posts']);
+Route::get('blog/{id}',['uses'=>'PostController@show','as'=>'posts.single'])->where(['id'=>'[1-9][0-9]*']);
 //Route::get('post',"PostController@index");

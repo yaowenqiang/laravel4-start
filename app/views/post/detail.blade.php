@@ -1,1 +1,10 @@
-/Users/apple/Documents/phpdevelop/laraverl4-start/app/views/post/detail.blade.php
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    {{ $id }}
+</body>
+</html>

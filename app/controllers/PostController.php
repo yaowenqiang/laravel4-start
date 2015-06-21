@@ -44,7 +44,7 @@ class PostController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+        return View::make('post.detail')->with(['id'=>$id]);
 	}
 
 	/**
