@@ -9,15 +9,9 @@ class UserController extends \BaseController {
 	 */
 	public function index()
 	{
-        $faker = Faker\Factory::create();
-        $users = [];
-        for ($i = 0; $i < 3; $i++) {
-            $user = new stdclass;
-            $user->name = $faker->username;
-            $user->email = $faker->email;
-            $user->password = Hash::make($faker->text);
-            $users[] = $user;
-        }
+        //$users = DB::table('users')->get();
+        $users = DB::table('users')->join('posts','users.id','=','posts.user_id')->get();
+        //dd(DB::getQueryLog());
         return View::make('users.index',compact('users'));
 	}
 
@@ -52,11 +46,16 @@ class UserController extends \BaseController {
 	 */
 	public function show($id)
 	{
-        $faker = Faker\Factory::create();
-        $user = new stdclass;
-        $user->name = $faker->username;
-        $user->email = $faker->email;
-        $user->password = Hash::make($faker->text);
+        //$user = DB::table('users')->where(['id'=>$id])->first();
+        //$user = DB::table('users')->where('id',$id)->first();
+        //$user = DB::table('users')->where('id',$id)->orWhere['id'=>$id]()->first();
+        //$user = DB::table('users')->where('id',$id)->first();
+        //$count= DB::table('users')->count();
+        //$count= DB::table('users')->lists(['username','id']);
+        //$count= DB::table('users')->max('id');
+        //$count= DB::table('users')->where('id','>',1)->orderBy('id','desc')->take(2)->skip(10)->get();
+        //$user = DB::table('users')->join('posts','users.id','=','posts.user_id')->get();
+        $user = DB::table('users')->find($id);
         return View::make('users.show',compact('user'));
 		//
 	}
