@@ -10,7 +10,11 @@ class PostController extends \BaseController {
 	 */
 	public function index()
 	{
-        return View::make('post.list');
+        //$posts = Posts::all();
+        $posts = Posts::with('user')->get();
+        //$posts = Posts::where('title','like','%post%')->get();
+        //$posts = Posts::where('title','like','%post%')->take(1)->skip(1)->get();
+        return View::make('post.list',compact('posts'));
 	}
 
 	/**
@@ -32,7 +36,16 @@ class PostController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+        $post = new Post;
+        //$post->title='test title';
+        //$post->body='test body';
+        $data = [
+            'title'=>'title',
+            'body'=>'body',
+            'user_id'=>1
+        ];;
+        Posts::create($data);
+        $post->save();
 	}
 
 	/**
@@ -44,7 +57,9 @@ class PostController extends \BaseController {
 	 */
 	public function show($id,$date)
 	{
-        return View::make('post.detail')->with(['id'=>$id,'date'=>$date]);
+        $post = Posts::find($id);
+        //return View::make('post.detail')->with(['id'=>$id,'date'=>$date]);
+        return View::make('post.detail',compact('post'));
 	}
 
 	/**
@@ -68,7 +83,9 @@ class PostController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+        $post = Posts::find($id);
+        $post->user_id = 1;
+        $post->save();
 	}
 
 	/**
@@ -80,7 +97,7 @@ class PostController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+        Posts::where('id',$id)->delete();
 	}
 
 }

@@ -55,7 +55,7 @@ class UserController extends \BaseController {
         //$count= DB::table('users')->max('id');
         //$count= DB::table('users')->where('id','>',1)->orderBy('id','desc')->take(2)->skip(10)->get();
         //$user = DB::table('users')->join('posts','users.id','=','posts.user_id')->get();
-        $user = DB::table('users')->find($id);
+        $user = User::with('phone')->with('categories')->find($id);
         return View::make('users.show',compact('user'));
 		//
 	}
